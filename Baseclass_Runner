@@ -1,0 +1,61 @@
+package com.java;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.support.ui.Select;
+
+public class Base_Class {
+	public static WebDriver driver;
+	public static void getDriver() {
+	System.setProperty("webdriver.chrome.driver", "C:\\Users\\LENOVO\\eclipse-workspace\\Miniprjct\\Driver\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+	}
+	public static void getUrl(String URL) {
+     driver.get(URL);
+	}
+	public static void WinMaxi() {
+		driver.manage().window().maximize();
+	}
+	public static void getInput(WebElement a,String b) {
+		a.sendKeys(b);
+	}
+	public static void getClick(WebElement a) {
+		a.click();
+	}
+	public static void getClear(WebElement a) {
+		a.clear();
+	}
+	public static void getSelect(WebElement a,String b) {
+		Select s= new Select(a);
+		s.selectByVisibleText(b);
+	}
+	public static void getScreenShot(String a) throws IOException {
+		TakesScreenshot ts=(TakesScreenshot) driver;
+		File from=ts.getScreenshotAs(OutputType.FILE);
+		File to=new File("C:\\Users\\LENOVO\\eclipse-workspace\\Selenium_Pr\\screenshot\\surya3.png");
+	    FileHandler.copy(from, to);
+      //siva
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
